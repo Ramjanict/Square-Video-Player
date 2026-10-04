@@ -1,5 +1,9 @@
 <div align="center">
 
+<img src="./assets/hero-banner.svg" alt="Square Video Player Banner" width="100%" />
+
+<br/>
+
 # 🔲 Square Video Player
 
 **A sleek, modern 1:1 aspect ratio video player featuring an animated perimeter SVG progress ring, smooth seeking, and glowing accents.**
@@ -32,6 +36,16 @@ Unlike conventional video players that rely on a standard horizontal progress ba
 - 🎯 **Smooth Easing Seek Animation**: Uses `requestAnimationFrame` with quadratic ease-in/ease-out mathematical interpolation for fluid playback seeking without stutter.
 - 🟡 **Dynamic Pointer Indicator**: Synchronized angular indicator tracking the playback progress along the player circumference.
 - 🚀 **Modern Tooling & Zero Bloat**: Powered by **React 19**, **Tailwind CSS v4**, and **Vite 7** with zero bulky third-party video libraries.
+
+---
+
+## 🖼️ Visual Showcase
+
+<div align="center">
+  <img src="./assets/player-preview.svg" alt="Player Preview Light Mode" width="48%" />
+  &nbsp;
+  <img src="./assets/dark-cyber-theme.svg" alt="Player Preview Dark/Cyber Theme" width="48%" />
+</div>
 
 ---
 
@@ -83,6 +97,18 @@ When clicking on the perimeter, the coordinate distance relative to the 4 sides 
 const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 video.currentTime = startTime + diff * ease;
 ```
+
+<br/>
+
+<div align="center">
+  <img src="./assets/perimeter-seek-demo.svg" alt="Perimeter Seek Diagram" width="85%" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="./assets/component-architecture.svg" alt="Component Architecture Diagram" width="85%" />
+</div>
 
 ---
 
