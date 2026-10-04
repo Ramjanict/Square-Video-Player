@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <!-- Background & lighting -->
+    <radialGradient id="stageGlow" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+
+    <!-- Neon Glow Filter -->
+    <filter id="redNeon" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/>
+      <feGaussianBlur stdDeviation="15" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#0f172a" flood-opacity="0.12"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- Video thumbnail artwork -->
+    <linearGradient id="mediaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="50%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean Canvas -->
+  <rect width="800" height="800" fill="url(#stageGlow)"/>
+
+  <!-- Subtitle Header text -->
+  <text x="400" y="85" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#0f172a">
+    1:1 Squircle Video Canvas
+  </text>
+  <text x="400" y="115" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#64748b">
+    Reactive 360° perimeter progress ring with animated seek navigation
+  </text>
+
+  <!-- Player Outer Container (500x500 at center 150, 160) -->
+  <g transform="translate(150, 160)" filter="url(#softShadow)">
+    <!-- Base Outer Rounded Box -->
+    <rect x="0" y="0" width="500" height="500" rx="58" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+
+    <!-- Track Background (Faded Perimeter) -->
+    <rect x="18" y="18" width="464" height="464" rx="46" fill="none" stroke="#fecaca" stroke-width="9" stroke-opacity="0.5"/>
+
+    <!-- Active Glowing Red Perimeter Stroke (70% completed) -->
+    <!-- perimeter = 2 * (464 + 464) = 1856. 70% offset = 1856 * 0.30 = 556 -->
+    <rect x="18" y="18" width="464" height="464" rx="46" fill="none" stroke="#ef4444" stroke-width="9" stroke-dasharray="1856" stroke-dashoffset="556" stroke-linecap="round" filter="url(#redNeon)"/>
+
+    <!-- Inner Video Screen Viewport -->
+    <g transform="translate(48, 48)">
+      <rect x="0" y="0" width="404" height="404" rx="26" fill="url(#mediaGrad)"/>
+
+      <!-- Video Visual Artwork: Waves and Glow -->
+      <circle cx="202" cy="170" r="85" fill="#ec4899" opacity="0.3" filter="url(#redNeon)"/>
+      <path d="M 0 300 Q 100 240, 202 280 T 404 250 L 404 404 L 0 404 Z" fill="#4338ca" opacity="0.6"/>
+      <path d="M 0 340 Q 120 300, 240 330 T 404 310 L 404 404 L 0 404 Z" fill="#1e1b4b" opacity="0.9"/>
+
+      <!-- Sleek Glass Floating Play Control -->
+      <circle cx="202" cy="202" r="44" fill="#ffffff" fill-opacity="0.2" stroke="#ffffff" stroke-width="2"/>
+      <polygon points="194,184 218,202 194,220" fill="#ffffff"/>
+
+      <!-- Duration Overlay Tag -->
+      <rect x="20" y="354" width="86" height="30" rx="8" fill="#000000" fill-opacity="0.65"/>
+      <text x="63" y="374" text-anchor="middle" font-family="monospace" font-size="12" font-weight="600" fill="#ffffff">02:18</text>
+
+      <!-- HD Tag -->
+      <rect x="335" y="20" width="48" height="24" rx="6" fill="#000000" fill-opacity="0.6"/>
+      <text x="359" y="36" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="700" fill="#e2e8f0">4K 60</text>
+    </g>
+
+    <!-- Active Indicator Node on the Bottom-Left border -->
+    <g transform="translate(18, 380)">
+      <circle cx="0" cy="0" r="10" fill="#facc15" filter="url(#redNeon)"/>
+      <circle cx="0" cy="0" r="4.5" fill="#ffffff"/>
+    </g>
+  </g>
+
+  <!-- Bottom Details & Metrics -->
+  <g transform="translate(150, 710)">
+    <text x="0" y="0" font-family="sans-serif" font-size="13" font-weight="600" fill="#475569">Aspect Ratio: <tspan fill="#ef4444">1:1 Square</tspan></text>
+    <text x="250" y="0" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="600" fill="#475569">Track: <tspan fill="#ef4444">Reactive SVG</tspan></text>
+    <text x="500" y="0" text-anchor="end" font-family="sans-serif" font-size="13" font-weight="600" fill="#475569">Easing: <tspan fill="#ef4444">Quadratic</tspan></text>
+  </g>
+</svg>
