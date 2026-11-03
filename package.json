@@ -4,17 +4,19 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node api.js && vite --host 0.0.0.0 --port=4321",
-    "build": "node api.js && tsc -b && vite build",
+    "dev": "node init && vite --host 0.0.0.0 --port=4321",
+    "build": "node init && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@nanostores/react": "^1.0.0",
     "@tailwindcss/vite": "^4.1.14",
+    "dotenv": "^8.2.0",
     "mobx": "^6.13.7",
     "mobx-react-lite": "^4.1.0",
     "nanostores": "^1.0.1",
+    "node-fetch": "^3.3.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
